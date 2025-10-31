@@ -1,0 +1,177 @@
+/* Basic reset + font */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg: #f5f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --surface: #f8fafc;
+  --shadow: 0 8px 28px rgba(31,41,55,0.08);
+  --glass: rgba(255,255,255,0.6);
+}
+body{
+  background: linear-gradient(180deg,#e9eefc 0%, #f7fafc 100%);
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 32px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;
+}
+
+/* Container */
+.container{
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Single column on small screens */
+@media (max-width: 880px){
+  .container{ grid-template-columns: 1fr; padding: 12px; }
+}
+
+/* Cards */
+.card{
+  background: var(--card);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15,23,42,0.03);
+}
+
+/* Header */
+.app-header{
+  grid-column: 1 / -1;
+  text-align: left;
+  margin-bottom: 6px;
+}
+.app-header h1{ font-size: 1.5rem; letter-spacing: -0.3px; }
+.subtitle{ color: var(--muted); margin-top:6px; font-size:0.95rem; }
+
+/* Balance card spans left column */
+.balance-card{ display:flex; flex-direction:column; gap:12px; }
+.balance-top{ display:flex; justify-content:space-between; align-items:center; }
+.balance h2{ font-size:1rem; color:var(--muted); }
+#balance{ font-size:1.6rem; margin-top:6px; color:#0b1220; font-weight:700; }
+
+/* Actions */
+.actions{ display:flex; gap:8px; }
+.small-btn{
+  background: transparent; border:1px solid rgba(15,23,42,0.06);
+  padding:8px 10px; border-radius:8px; cursor:pointer; font-size:0.9rem;
+}
+.small-btn.ghost{ background:transparent; color:var(--muted); }
+.small-btn:hover{ transform:translateY(-1px); }
+
+/* Summary row */
+.summary-row{ display:flex; gap:12px; justify-content:space-between; margin-top:6px; }
+.summary-item h4{ color:var(--muted); font-size:0.9rem; }
+.money{ font-weight:700; font-size:1.1rem; margin-top:6px; }
+.plus{ color:var(--success); }
+.minus{ color:var(--danger); }
+
+/* History / filters */
+.history-card{ display:flex; flex-direction:column; gap:12px; }
+.filters{ display:flex; gap:12px; align-items:end; flex-wrap:wrap; }
+.filter-col{ display:flex; flex-direction:column; gap:6px; }
+.filter-col select, .filter-col input[type="date"]{
+  padding:8px 10px; border-radius:8px; border:1px solid rgba(15,23,42,0.06);
+  background:var(--surface);
+}
+
+/* Date range inline */
+.date-range{ display:flex; align-items:center; gap:8px; }
+.to{ color:var(--muted); font-size:0.9rem; }
+
+/* Filter actions */
+.filter-actions{ display:flex; gap:8px; }
+#apply-filter{ background:var(--accent); color:#fff; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+#clear-filter{ background:transparent; border:1px solid rgba(15,23,42,0.06); padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+/* Transaction list */
+.history-title{ margin-top:6px; font-size:1.05rem; }
+.list{ list-style:none; max-height:320px; overflow:auto; padding-right:6px; margin-top:6px; display:flex; flex-direction:column; gap:8px; }
+.list li{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:10px; border-radius:10px; background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid rgba(15,23,42,0.03);
+}
+.item-left{ display:flex; gap:12px; align-items:center; }
+.badge{ font-size:0.78rem; padding:6px 8px; border-radius:8px; background:#f3f4f6; color:var(--muted); }
+.tx-name{ font-weight:600; color:#0b1220; }
+.tx-meta{ font-size:0.85rem; color:var(--muted); }
+.tx-amount{ font-weight:700; }
+.tx-amount.plus{ color:var(--success); }
+.tx-amount.minus{ color:var(--danger); }
+
+.delete-btn{ background:transparent; border:none; font-size:1.05rem; cursor:pointer; color:var(--muted); }
+.delete-btn:hover{ color:var(--danger); transform:scale(1.05); }
+
+/* Form styling */
+.form-card{ display:flex; flex-direction:column; gap:10px; }
+.form-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; align-items:end; }
+@media (max-width:880px){ .form-grid{ grid-template-columns: 1fr; } }
+
+.form-control{ display:flex; flex-direction:column; gap:6px; }
+.form-control input, .form-control select{
+  padding:10px; border-radius:8px; border:1px solid rgba(15,23,42,0.06); background:var(--surface);
+}
+.radio-row{ display:flex; gap:10px; align-items:center; }
+
+.fullwidth{ grid-column: 1 / -1; }
+
+.btn{ padding:10px 12px; background:var(--accent); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:600; }
+.btn:hover{ background:#3730a3; transform:translateY(-2px); }
+
+/* Error message */
+.error-message{ grid-column:1 / -1; color:#fff; background:var(--danger); padding:8px 10px; border-radius:8px; text-align:center; }
+
+/* Monthly summary */
+.summary-card{ grid-column: 1 / -1; }
+.monthly-summary{ display:flex; flex-direction:column; gap:8px; max-height:260px; overflow:auto; }
+.month-row{ display:flex; justify-content:space-between; padding:8px 10px; border-radius:8px; background:#fbfcff; border:1px solid rgba(15,23,42,0.03); }
+.month-row .label{ font-weight:600; }
+.month-row .values{ color:var(--muted); }
+
+/* Footer */
+.footer{ grid-column:1 / -1; text-align:center; margin-top:8px; color:var(--muted); font-size:0.9rem; padding-bottom:10px;}
+
+/* Maintain two columns properly */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: sticky;
+    top: 20px; /* keeps the Add Transaction visible */
+  }
+  
+  /* Transaction list scrollable area */
+  .transaction-list-wrapper {
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  
+  /* Responsive fix */
+  @media (max-width: 880px) {
+    .left-column,
+    .right-column {
+      position: static;
+    }
+  }
+  
