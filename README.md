@@ -37,7 +37,7 @@ LocalStorage API – For persistent data storage in the browser
 
 Clone the repository
 
-git clone https://github.com/yourusername/expense-tracker.git
+git clone https://github.com/Riju01/Expense-Tracker.git
 
 
 Navigate to the project directory
