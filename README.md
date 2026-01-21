@@ -42,8 +42,7 @@ git clone https://github.com/Riju01/Expense-Tracker.git
 
 Navigate to the project directory
 
-cd InternProject
-
+cd Expense-Tracker
 
 Open index.html in your browser.
 That’s it — the app runs entirely in your browser, no server required!
